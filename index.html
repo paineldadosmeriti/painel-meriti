@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Indicadores oficiais sobre desigualdade de oportunidades no trabalho em São João de Meriti (ODS 10.3), com dados abertos e metodologia.">
+<title>Painel Meriti em Dados</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#metodologia">Ir para dados e metodologia</a>
+
+<header>
+  <span class="eyebrow">ODS 10 · Meta 10.3 — Igualdade de Oportunidades</span>
+  <h1>Painel Meriti em Dados — Igualdade de Oportunidades no Trabalho</h1>
+  <p>Um painel para quem busca renda formal, sindicatos e entidades de classe, e trabalhadores informais de São João de Meriti que buscam orientação de planejamento — com dados oficiais sobre desigualdade de resultados, discriminação no mercado de trabalho e os caminhos práticos para reduzi-la. Continuação do diagnóstico produzido no PIEX I.</p>
+</header>
+
+<div class="wrap">
+
+  <div class="section-title"><span class="tag"></span><h2>Panorama em números</h2></div>
+  <p class="section-sub">Indicadores centrais para acompanhar a Meta 10.3: igualdade de oportunidades e redução das desigualdades de resultado no mercado de trabalho.</p>
+  <div class="kpi-grid" id="kpis"></div>
+
+  <div class="section-title"><span class="tag"></span><h2>Desigualdade de resultado: território, raça e sindicalização</h2></div>
+  <p class="section-sub">A Meta 10.3 trata da eliminação de leis, políticas e práticas discriminatórias. Em Meriti e no Brasil, essa desigualdade de resultado aparece na renda territorial, na informalidade por raça e no enfraquecimento da representação sindical — justamente entre quem mais precisa dela.</p>
+  <div class="grid-2">
+    <div class="card">
+      <h3>Remuneração média formal (2024)</h3>
+      <div class="src">Fonte: Caravela (2025), com base em RAIS/MTE</div>
+      <div class="chart-box"><canvas id="chartRenda"></canvas></div>
+    </div>
+    <div class="card">
+      <h3>PIB per capita (2023)</h3>
+      <div class="src">Fonte: Caravela, a partir de dados do IBGE</div>
+      <div class="chart-box"><canvas id="chartPib"></canvas></div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-top:18px;">
+    <div class="card">
+      <h3>Informalidade por raça no Brasil (4º tri 2024)</h3>
+      <div class="src">Fonte: Agência Brasil / PNAD Contínua (IBGE, 2025)</div>
+      <div class="chart-box"><canvas id="chartRaca"></canvas></div>
+    </div>
+    <div class="card">
+      <h3>Taxa de sindicalização — Brasil</h3>
+      <div class="src">Fonte: IBGE/PNAD Contínua (2012, 2023) · *2024 estimado a partir da média entre homens e mulheres</div>
+      <div class="chart-box"><canvas id="chartMeta101"></canvas></div>
+    </div>
+  </div>
+
+  <p class="section-sub" style="margin-top:14px;">
+    Em São João de Meriti, 70% da população se autodeclara preta ou parda (Censo IBGE, 2022) — o que aproxima diretamente a desigualdade racial de informalidade retratada acima da realidade do município. A cobertura sindical é ainda mais frágil entre quem mais precisaria dela: apenas <b>3,7%</b> dos empregados sem carteira assinada e <b>2%</b> dos trabalhadores domésticos são sindicalizados no Brasil (IBGE/PNAD Contínua, 2023) — o grupo com menos voz institucional para reivindicar igualdade de tratamento.
+  </p>
+
+  <div class="callout">
+    <div>
+      <h3>ODS 10 — Meta monitorada por este painel</h3>
+      <div class="meta-pill"><b>10.3</b> — garantir a igualdade de oportunidades e reduzir as desigualdades de resultados, inclusive por meio da eliminação de leis, políticas e práticas discriminatórias e da promoção de legislação, políticas e ações adequadas a este respeito</div>
+    </div>
+    <p>Ao tornar públicas e comparáveis as desigualdades de resultado no mercado de trabalho de Meriti — territoriais, raciais e de representação sindical —, o painel cria um instrumento de cobrança para o poder público e para os sindicatos locais, e de orientação prática para quem busca renda formal ou vive da informalidade no município.</p>
+    </div>
+
+  <div class="section-title"><span class="tag"></span><h2>Orientação prática para cada público</h2></div>
+  <p class="section-sub">Escolha o seu perfil. Os passos marcados ficam salvos neste navegador.</p>
+  <div class="action-box" id="guia"></div>
+
+  <div class="card comp" style="margin-top:18px">
+    <h3>Compare sua renda</h3>
+    <div class="src">Médias formais de 2024 (RAIS/MTE, via Caravela). Nada é enviado ou armazenado.</div>
+    <label for="comp-in">Renda mensal (R$)</label> <input id="comp-in" inputmode="decimal" placeholder="ex.: 1800" autocomplete="off">
+    <p id="comp-out" aria-live="polite"></p>
+  </div>
+
+  <div class="section-title"><span class="tag"></span><h2>Compartilhe e divulgue</h2></div>
+  <ul id="divulgacao" class="metodo-lista"></ul>
+  <p><a class="btn" id="sh-wpp" target="_blank" rel="noopener">Compartilhar no WhatsApp</a> <button type="button" class="btn" id="sh-link">Copiar link</button> <button type="button" class="btn" id="sh-print">Imprimir / salvar PDF</button> <span id="sh-ok" role="status"></span></p>
+
+  <section id="metodologia" class="metodo">
+    <div class="section-title"><span class="tag"></span><h2>Dados abertos e metodologia</h2></div>
+    <div id="aviso-revisao"></div>
+    <p class="section-sub" id="versao"></p>
+    <p><button type="button" class="btn" id="dl-csv">Baixar dados (CSV)</button> <button type="button" class="btn" id="dl-json">Baixar dados (JSON)</button></p>
+    <h3>Medidas derivadas</h3>
+    <div class="tabela-wrap" id="derivados"></div>
+    <h3>Notas metodológicas</h3>
+    <ul id="notas"></ul>
+    <h3>Referências</h3>
+    <ul id="refs"></ul>
+  </section>
+</div>
+
+<footer>
+  Painel produzido no âmbito do <b>PIEX II — Centro Universitário UniDomBosco</b>, a partir do diagnóstico do PIEX I sobre informalidade e desigualdade em São João de Meriti.<br>
+  Fontes dos dados: IBGE (Censo 2022, PNAD Contínua, Cidades e Estados), Caravela (2025, com base em RAIS/MTE), Agência Brasil (2025), FGV/IBRE (2019, 2025), Sebrae/Observatório Setorial Territorial Brasil (2025), Ministério do Trabalho e Emprego/Ministério das Mulheres — Lei 14.611/2023 (2025).
+</footer>
+
+
+<noscript><p style="padding:20px">Este painel precisa de JavaScript para exibir gráficos e indicadores.</p></noscript>
+<script src="vendor/chart.umd.min.js"></script>
+<script src="data/dados.js"></script>
+<script src="js/stats.js"></script>
+<script src="data/guia.js"></script>
+<script src="js/app.js"></script>
+<script src="js/guia.js"></script>
+</body>
+</html>
